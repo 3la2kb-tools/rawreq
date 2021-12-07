@@ -52,11 +52,12 @@ def construct(raw):
         req_data = body(lines,body_index)					  #
 
 
-    print(req_func)
-    print(req_path)
-    print(req_headers)
-    print(req_data)
-    print(req_domain)
+    # print(req_func)								  #
+    # print(req_path)								  #
+    # print(req_headers)							  #	Debug prints for request components
+    # print(req_data)								  #
+    # print(req_domain)								  #
+
     return {"method":req_func,"domain":req_domain,"path":req_path,"headers":req_headers,"data":req_data}
 
 
