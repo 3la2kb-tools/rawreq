@@ -30,26 +30,26 @@ def construct(raw):
     req_path = path(first_line)               				          # Ex: /index.html
 
 
-    req_headers = {}			      					                      # HTTP headers Ex : Host: google.com
+    req_headers = {}			      					  # HTTP headers Ex : Host: google.com
 
     for header in range(1,len(lines)):
-        parsed_header = re.search(header_regex,lines[header])		#
-        if parsed_header != None:						                    #
-                key = parsed_header[1]					                #
-                value = parsed_header[2]					              #
+        parsed_header = re.search(header_regex,lines[header])			  #
+        if parsed_header != None:						  #
+                key = parsed_header[1]					          #
+                value = parsed_header[2]					  #
                 req_headers.update({key:value})				          #	HTTP headers parsing
-        else :									                                #
-                body_index = header+1						                #
-                break								                            #
+        else :									  #
+                body_index = header+1						  #
+                break								  #
 
 
-    req_domain = req_headers["Host"]						                # 	Target domain
+    req_domain = req_headers["Host"]						  # 	Target domain
 
 
 
-    req_data = None								                              #
-    if req_func != requests.get :						                    #	Request body
-        req_data = body(lines,body_index)					              #
+    req_data = None								  #
+    if req_func != requests.get :						  #	Request body
+        req_data = body(lines,body_index)					  #
 
 
     print(req_func)
